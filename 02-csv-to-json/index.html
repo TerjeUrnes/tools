@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <link rel="stylesheet" href="../assets/css/index.css">
+        <script type="text/javascript" src="papaparse.min.js"></script>
+        <script type="module">
+            import { CsvToJson } from "./csv-to-json.js";
+
+            var index;
+
+            document.addEventListener('readystatechange', function() {
+                if (document.readyState === "complete") { 
+                    index = new Index();
+            } 
+            });
+
+            class Index {
+
+                #csvToJson
+
+                constructor() {
+                    this.#csvToJson = new CsvToJson();
+                }
+            }
+        </script>
+        <title>CSV to JSON</title>
+    </head>
+    <body>
+        <div id="content-container">
+            <form>
+                <input id="open-file-button" type="button">
+            </form>
+        </div>
+    </body>
+</html>
